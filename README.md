@@ -1,1 +1,1 @@
-# CI-CD-Puc
+# Full stack app for tech learning
