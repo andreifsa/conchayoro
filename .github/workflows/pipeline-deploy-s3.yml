@@ -1,4 +1,4 @@
-tname: pipeline-deploy-s3
+name: pipeline-deploy-s3
 
 on:
   push
