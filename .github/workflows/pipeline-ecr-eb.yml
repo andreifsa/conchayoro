@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: ebconfig
+          name: ebconfig-${{ github.run_id }}  # Nome único para cada execução
           path: .
       - run: |
           sed -i='' "s/<AWS_ACCOUNT_ID>/$AWS_ACCOUNT_ID/" Dockerrun.aws.json
