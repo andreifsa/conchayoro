@@ -9,9 +9,9 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-  AWS_REGION: us-east-1
-  PROJECT_NAME: conchayoro
-  MODULE_NAME: frontend
+  AWS_REGION: ${{ vars.AWS_REGION }}
+  PROJECT_NAME: ${{ vars.PROJECT_NAME }}
+  MODULE_NAME: ${{ vars.MODULE_NAME }}
   TAG: latest
   STACK_NAME: "64bit Amazon Linux 2 v3.5.7 running Docker"
 
@@ -28,7 +28,6 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-      - run: echo "Building image with name:$MODULE_FULLNAME and context:$MODULE_NAME"
       - run: docker build -t $MODULE_FULLNAME .
       - run: |
           docker tag $MODULE_FULLNAME:$TAG \
